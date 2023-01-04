@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -28,11 +28,7 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
-    /*
-    @Autowired
-    private PagingUserRepository pagingUserRepository;
-*/
-
+    
 
 
 
@@ -52,7 +48,7 @@ public class UserController {
         if(users.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        //System.out.println("všechny user");
+        
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
@@ -86,7 +82,7 @@ public class UserController {
         if(!userRepository.existsById(id)) {
             throw new UserNotFoundException(id);
         }
-        //insuranceRepository.deleteByUserId(id);
+        
         userRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
